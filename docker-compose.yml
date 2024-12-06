@@ -1,19 +1,19 @@
 version: '2.1'
 services:
   trudesk:
-    image: polonel/trudesk:1
+    image: trudesk-diven
     restart: always
     ports:
-      - "8118:8118"
+      - '8118:8118'
     dns:
-      - "1.1.1.1"
-      - "8.8.8.8"
+      - '1.1.1.1'
+      - '8.8.8.8'
     environment:
       NODE_ENV: production
-      TRUDESK_DOCKER: "true"
+      TRUDESK_DOCKER: 'true'
       TD_MONGODB_SERVER: mongo
       TD_MONGODB_DATABASE: trudesk
-      USE_XFORWARDIP: "true"
+      USE_XFORWARDIP: 'true'
     volumes:
       - trudesk_uploads:/usr/src/trudesk/public/uploads
       - trudesk_backups:/usr/src/trudesk/backups
@@ -21,7 +21,7 @@ services:
     image: mongo:5.0-focal
     restart: always
     ports:
-      - "27017:27017"
+      - '27017:27017'
     volumes:
       - mongo:/var/lib/mongo
       - mongo_data:/data/db:rw
@@ -39,8 +39,8 @@ services:
         soft: -1
         hard: -1
     ports:
-      - "9200:9200"
-      - "9300:9300"
+      - '9200:9200'
+      - '9300:9300'
     volumes:
       - elasticsearch:/usr/share/elasticsearch/data
 volumes:
