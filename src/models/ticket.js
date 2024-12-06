@@ -121,6 +121,7 @@ const ticketSchema = mongoose.Schema({
   form: { type: String },
   preferredChannel: { type: String },
   summary: { type: String },
+  clientId: { type: String },
 });
 
 ticketSchema.index({ deleted: -1, group: 1, status: 1 });
