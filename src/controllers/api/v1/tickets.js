@@ -892,7 +892,7 @@ apiTickets.update = function (req, res) {
           },
           function (cb) {
             if (!_.isUndefined(reqTicket.clientId)) {
-              ticket.clientId = sanitizeHtml(reqTicket.summary).trim();
+              ticket.clientId = sanitizeHtml(reqTicket.clientId).trim();
             }
             return cb();
           },
